@@ -1,0 +1,66 @@
+{% load static %}
+
+
+{% if "http://localhost:8000/request/" in request.build_absolute_uri or "http://127.0.0.1:8000/request/" in request.build_absolute_uri %}
+    <div class="card w-100 mb5">
+         <div class="row g-0">
+            <div class="col-md-6 d-flex justify-center">
+                <img  src="{{ artifact.image }}" />
+            </div>
+            <div class="col-md-6">
+                <div class="card-body">
+                    <h5 class="card-title">{{ artifact.title }} </h5>
+                    <p class="card-text">Индекс влияния: {{ artifact.social_media_score }}</p>
+                    <div class="form-group">
+                        <label class="form-label">Параметры</label>
+                        <input type="text" disabled class="form-control" 
+                            style="width: 350px" 
+                            value="{{ artifact.analysis_depth }}">
+                    </div>
+                    <div class="form-group">
+                    <a href="{% url "artifact_detail" artifact_id=artifact.id %}" class="btn btn-primary" style="width: 160px">
+                        Анализировать
+                    </a>
+                    <form method="post" action="{% url 'del_artifact_to_draft_request' artifact_id=artifact.id %}" >
+                   {% csrf_token %}
+                    <button href="" class="btn btn-danger" style="width: 160px" type="submit">
+                        Удалить
+                    </button>  </form>
+                    
+                    </div>
+                </div>
+            </div>
+         </div>
+    </div>
+{% else %}
+
+    {% load static %}
+ 
+    <div class="card">
+        <img src="{{ artifact.image }}" class="artifacts-preview" alt=""/>
+        <div class="card-body" >
+            <div class="card-info">
+                <h5 class="card-title">{{ artifact.title }}</h5>
+                <p class="card-text"> Индекс влияния: {{ artifact.social_media_score }}</p>
+            </div>
+            <div class="card-btns">
+                <a href="{% url "artifact_detail" artifact_id=artifact.id %}" class="btn btn-primary center">
+                    Анализировать
+                </a>
+                
+            </div>
+             <form method="post" action="{% url 'add_artifact_to_draft_request' artifact_id=artifact.id %}" class="col d-flex justify-content-center">
+                    {% csrf_token %}
+                    <button class="add-btn btn btn-secondary" type="submit">
+                        Добавить
+                    </button>
+                </form>
+                
+        </div>
+    </div>
+
+{% endif %}
+
+
+
+

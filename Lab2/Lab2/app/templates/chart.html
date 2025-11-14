@@ -1,0 +1,75 @@
+{% load static %}
+
+{% comment %} <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> {% endcomment %}
+<script src="{% static 'chartjs/chart.js' %}"></script> 
+
+<script>
+    // Данные для диаграммы
+    const data = {
+        labels: [
+        'Прямые циататы в интернете',
+        'Влияние на игры',  
+        'Упоминания сми', 
+        'Фан-творчество'],
+        datasets: [{
+            data: [
+            {{artifact.citation_count}}, 
+            {{artifact.media_mentions}}, 
+            {{artifact.social_media_score}},
+            {{artifact.adaptation_count}}
+            ],
+            backgroundColor: [
+                '#056875',
+                '#c9495e',
+                '#37a86f',
+                '#50c2e5'
+            ],
+            borderWidth: 2,
+            borderColor: '#fff'
+        }]
+    };
+
+    // Настройки диаграммы
+    const config = {
+        type: 'doughnut',
+        data: data,
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            cutout: '70%', // Отверстие в центре для текста
+            plugins: {
+                legend: {
+                    position: 'bottom',
+                    labels: {
+                        padding: 20,
+                        usePointStyle: true
+                    }
+                },
+                tooltip: {
+                    callbacks: {
+                        label: function(context) {
+                            const label = context.label || '';
+                            const value = context.parsed;
+                            const total = context.dataset.data.reduce((a, b) => a + b, 0);
+                            const percentage = Math.round((value / total) * 100);
+                            return `${label}: ${value} (${percentage}%)`;
+                        }
+                    }
+                }
+            }
+        }
+    };
+
+    // Создание диаграммы
+    const ctx = document.getElementById('myPieChart').getContext('2d');
+    const myPieChart = new Chart(ctx, config);
+
+    // Функция для обновления текста в центре
+    function updateCenterText() {
+        const total = data.datasets[0].data.reduce((a, b) => a + b, 0);
+        document.getElementById('totalValue').textContent = total;
+    }
+
+    // Инициализация текста
+    updateCenterText();
+</script>
