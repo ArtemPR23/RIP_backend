@@ -1,0 +1,19 @@
+{% load static %}
+
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Система анализа культурного влияния</title>
+    <link rel="stylesheet" href="{% static 'css/main.css' %}?r=1">
+    <link rel="stylesheet" href="{% static '/bootstrap-5.0.2/css/bootstrap.min.css' %}?r=1">
+    {% comment %} <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"> {% endcomment %}
+</head>
+<body>
+    <div class="wrapper">
+        {% include "header.html" %}
+        {% block content %}
+        {% endblock content %}
+    </div>
+</body>
+</html>

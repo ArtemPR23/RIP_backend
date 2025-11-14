@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+    <main class="container">
+
+        <h3>Исследование</h3>
+
+        <span>Название исследования: {{publication.title}}</span>
+         <form class="search-bar" action="/" method="GET">
+            <div class="row">
+                <div class="col-md-3">
+                    <input type="text" class="form-control" placeholder="Введите название" name="search" value="{{ search_query }}">
+                </div>
+                <div class="col-md-4">
+                    <button type="submit" class="btn btn-primary">Поиск</button>
+                </div>
+            </div>
+        </form>
+
+        <h4 class="text-center">Объект анализа</h4>
+
+        <div class="cards-wrapper d-flex flex-column">
+
+            {% for artifact in artifacts %}
+
+                {% include "artifact_card.html" %}
+
+            {% endfor %}
+
+        </div>
+
+    </main>
+{% endblock content %}

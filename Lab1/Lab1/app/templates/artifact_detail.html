@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+    <main class="container artifact-page">
+        <div class="row">
+            <div class="col-6">
+                <img src="{{ artifact.image }}" class="artifact-image" alt=""/>
+            </div>
+            <div class="col-6 d-flex flex-md-column gap-md-3">
+                <h1>{{ artifact.title }}</h1>
+                <span>Автор: {{ artifact.author }}</span>
+                <span>Год первой публикации: {{ artifact.publication_year }}г</span>
+                <span>Жанр: {{ artifact.genre }}</span>
+                <span>Индекс влияния: {{ artifact.base_influence_score }}</span>
+                <div class="chart-container">
+                        <canvas id="myPieChart"></canvas>
+                        <div class="center-text">
+                            <div class="total-value" id="totalValue">100%</div>
+                            <div class="total-label">Вклад(пункты)</div>
+                        </div>
+                    </div>
+                <a href="/" class="btn btn-primary my-4 w-25">
+                    Назад к каталогу
+                </a>
+            </div>
+        </div>
+    </main>
+
+    {% include "chart.html" %}
+
+{% endblock content %}
