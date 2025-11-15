@@ -24,9 +24,15 @@
                             <div class="total-label">Вклад(пункты)</div>
                         </div>
                     </div>
-                <a href="/" class="btn btn-primary my-4 w-25">
-                    Назад к каталогу
-                </a>
+                 <form method="post" action="{% url 'add_artifact_to_draft_request' artifact_id=artifact.id %}" class="">
+                    {% csrf_token %}
+                    <button class="add-btn btn btn-secondary" type="submit">
+                        Добавить
+                    </button>
+                    <a href="/" class="btn btn-primary my-4 w-25">
+                        Назад к каталогу
+                    </a>
+                </form>
                 
             </div>
         </div>
