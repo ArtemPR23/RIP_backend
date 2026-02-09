@@ -85,6 +85,13 @@ class CulturalArtifact(models.Model):
         verbose_name="Изображение",
         help_text="URL-адрес изображения артефакта",
     )
+    video = models.URLField(
+        max_length=500,
+        blank=True,
+        null=True,
+        verbose_name="Видео",
+        help_text="URL-адрес видео артефакта",
+    )
 
     created_at = models.DateTimeField(auto_now_add=True, verbose_name="Дата создания")
 
@@ -210,6 +217,7 @@ class AnalysisRequest(models.Model):
         validators=[MinValueValidator(0)],
         verbose_name="Общий показатель влияния",
         help_text="Суммарный показатель влияния всех артефактов",
+        default=1
     )
 
     description = models.TextField(

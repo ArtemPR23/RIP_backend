@@ -7,9 +7,21 @@
                         Удалить
             </a>
         <div class="row">
-            
+            <!-- Левая колонка с изображением и видео -->            
             <div class="col-6">
                 <img src="{{ artifact.image }}" class="artifact-image" alt=""/>
+
+                {% if artifact.video %}
+                <div class="video-container mt-4">
+                    <h4>Видеоматериалы</h4>
+                    <video class="artifact-video w-100" controls>
+                        <source src="{{ artifact.video }}" type="video/mp4">
+                        Ваш браузер не поддерживает воспроизведение видео.
+                    </video>
+                    <p class="text-muted mt-2 small">Для воспроизведения видео используйте элементы управления плеера</p>
+                </div>
+                {% endif %}
+            
             </div>
             <div class="col-6 d-flex flex-md-column gap-md-3">
                 <h1>{{ artifact.title }}</h1>

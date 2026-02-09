@@ -21,7 +21,8 @@ class Command(BaseCommand):
                 "media_mentions": 95,
                 "social_media_score": 85,
                 "adaptation_count": 3,
-                "image": "http://localhost:9000/images/metro2033.png"
+                "image": "http://localhost:9000/images/metro2033.png",
+                "video": "http://localhost:9000/images/metro2033.mp4",
             },
             {
                 "id": 2,
@@ -35,7 +36,8 @@ class Command(BaseCommand):
                 "media_mentions": 450,
                 "social_media_score": 380,
                 "adaptation_count": 1,
-                "image": "http://localhost:9000/images/got.png"
+                "image": "http://localhost:9000/images/got.png",
+                "video": "http://localhost:9000/images/got.mp4",
             },
             {
                 "id": 3,
@@ -49,7 +51,8 @@ class Command(BaseCommand):
                 "media_mentions": 320,
                 "social_media_score": 410,
                 "adaptation_count": 2,
-                "image": "http://localhost:9000/images/it.png"
+                "image": "http://localhost:9000/images/it.png",
+                "video": "http://localhost:9000/images/it.mp4",
             },
             {
                 "id": 4,
@@ -63,7 +66,8 @@ class Command(BaseCommand):
                 "media_mentions": 280,
                 "social_media_score": 890,
                 "adaptation_count": 0,
-                "image": "http://localhost:9000/images/mrbeast.png"
+                "image": "http://localhost:9000/images/mrbeast.png",
+                "video": "http://localhost:9000/images/mrbeast.mp4",
             },
             {
                 "id": 5,
@@ -77,7 +81,8 @@ class Command(BaseCommand):
                 "media_mentions": 310,
                 "social_media_score": 290,
                 "adaptation_count": 15,
-                "image": "http://localhost:9000/images/comedyclub.png"
+                "image": "http://localhost:9000/images/comedyclub.png",
+                "video": "http://localhost:9000/images/comedyclub.mp4",
             },
             {
                 "id": 6,
@@ -91,7 +96,8 @@ class Command(BaseCommand):
                 "media_mentions": 190,
                 "social_media_score": 670,
                 "adaptation_count": 8,
-                "image": "http://localhost:9000/images/office.png"
+                "image": "http://localhost:9000/images/office.png",
+                "video": "http://localhost:9000/images/office.mp4",
             }
         ]
 
