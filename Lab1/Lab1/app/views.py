@@ -13,7 +13,8 @@ cultural_artifacts = [
         "media_mentions": 95,
         "social_media_score": 85,
         "adaptation_count": 3,
-        "image": "http://localhost:9000/images/metro2033.png"
+        "image": "http://localhost:9000/images/metro2033.png",
+        "video": "http://localhost:9000/images/metro2033.mp4",
     },
     {
         "id": 2,
@@ -27,7 +28,8 @@ cultural_artifacts = [
         "media_mentions": 450,
         "social_media_score": 380,
         "adaptation_count": 1,
-        "image": "http://localhost:9000/images/got.png"
+        "image": "http://localhost:9000/images/got.png",
+        "video": "http://localhost:9000/images/got.png",
     },
     {
         "id": 3,
@@ -41,7 +43,8 @@ cultural_artifacts = [
         "media_mentions": 320,
         "social_media_score": 410,
         "adaptation_count": 2,
-        "image": "http://localhost:9000/images/it.png"
+        "image": "http://localhost:9000/images/it.png",
+        "video": "http://localhost:9000/images/it.mp4",
     },
     {
         "id": 4,
@@ -55,7 +58,8 @@ cultural_artifacts = [
         "media_mentions": 280,
         "social_media_score": 890,
         "adaptation_count": 0,
-        "image": "http://localhost:9000/images/mrbeast.png"
+        "image": "http://localhost:9000/images/mrbeast.png",
+        "video": "http://localhost:9000/images/mrbeast.mp4",
     },
     {
         "id": 5,
@@ -69,7 +73,8 @@ cultural_artifacts = [
         "media_mentions": 310,
         "social_media_score": 290,
         "adaptation_count": 15,
-        "image": "http://localhost:9000/images/comedyclub.png"
+        "image": "http://localhost:9000/images/comedyclub.png",
+        "video": "http://localhost:9000/images/comedyclub.mp4",
     },
     {
         "id": 6,
@@ -83,11 +88,13 @@ cultural_artifacts = [
         "media_mentions": 190,
         "social_media_score": 670,
         "adaptation_count": 8,
-        "image": "http://localhost:9000/images/office.png"
+        "image": "http://localhost:9000/images/office.png",
+        "video": "http://localhost:9000/images/office.mp4",
     }
 ]
 
-analysis_request = {
+
+citation_request = {
     "id": 123,
     "status": "Черновик",
     "date_created": "12 сентября 2024г",
@@ -138,18 +145,18 @@ def search_artifacts(search_query):
     return res
 
 
-def get_analysis_request():
-    return analysis_request
+def get_citation_request():
+    return citation_request
 
 
-def get_analysis_request_by_id(request_id):
-    return analysis_request
+def get_citation_request_by_id(request_id):
+    return citation_request
 
 
 def index(request):
     search_query = request.GET.get("search", "")
     artifacts = search_artifacts(search_query) if search_query else get_artifacts()
-    current_request = get_analysis_request()
+    current_request = get_citation_request()
     
     context = {
         "artifacts": artifacts,
@@ -171,16 +178,16 @@ def artifact_detail(request, artifact_id):
 
 
 def request_detail(request, request_id):
-    analysis_request = get_analysis_request_by_id(request_id)
+    citation_request = get_citation_request_by_id(request_id)
     artifacts = [
         {**get_artifact_by_id(artifact["id"]), 
          "weight": artifact["weight"],
          "analysis_depth": artifact["analysis_depth"]}
-        for artifact in analysis_request["artifacts"]
+        for artifact in citation_request["artifacts"]
     ]
     
     context = {
-        "analysis_request": analysis_request,
+        "citation_request": citation_request,
         "artifacts": artifacts
     }
     

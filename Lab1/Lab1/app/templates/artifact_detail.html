@@ -4,22 +4,38 @@
 {% block content %}
     <main class="container artifact-page">
         <div class="row">
+            <!-- Левая колонка с изображением и видео -->
             <div class="col-6">
-                <img src="{{ artifact.image }}" class="artifact-image" alt=""/>
+                <img src="{{ artifact.image }}" class="artifact-image mb-3" alt=""/>
+                
+                {% if artifact.video %}
+                <div class="video-container mt-4">
+                    <h4>Видеоматериалы</h4>
+                    <video class="artifact-video w-100" controls>
+                        <source src="{{ artifact.video }}" type="video/mp4">
+                        Ваш браузер не поддерживает воспроизведение видео.
+                    </video>
+                    <p class="text-muted mt-2 small">Для воспроизведения видео используйте элементы управления плеера</p>
+                </div>
+                {% endif %}
             </div>
+            
+            <!-- Правая колонка с информацией -->
             <div class="col-6 d-flex flex-md-column gap-md-3">
                 <h1>{{ artifact.title }}</h1>
                 <span>Автор: {{ artifact.author }}</span>
                 <span>Год первой публикации: {{ artifact.publication_year }}г</span>
                 <span>Жанр: {{ artifact.genre }}</span>
                 <span>Индекс влияния: {{ artifact.base_influence_score }}</span>
+                
                 <div class="chart-container">
-                        <canvas id="myPieChart"></canvas>
-                        <div class="center-text">
-                            <div class="total-value" id="totalValue">100%</div>
-                            <div class="total-label">Вклад(пункты)</div>
-                        </div>
+                    <canvas id="myPieChart"></canvas>
+                    <div class="center-text">
+                        <div class="total-value" id="totalValue">100%</div>
+                        <div class="total-label">Вклад(пункты)</div>
                     </div>
+                </div>
+                
                 <a href="/" class="btn btn-primary my-4 w-25">
                     Назад к каталогу
                 </a>

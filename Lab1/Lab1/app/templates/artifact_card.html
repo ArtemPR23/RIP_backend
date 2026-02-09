@@ -1,11 +1,11 @@
 {% load static %}
 
 
-{% if "http://localhost:8000/request/" in request.build_absolute_uri or "http://127.0.0.1:8000/request/" in request.build_absolute_uri %}
+{% if "http://localhost:8000/citation_request/" in request.build_absolute_uri or "http://127.0.0.1:8000/citation_request/" in request.build_absolute_uri %}
     <div class="card w-100 mb5">
          <div class="row g-0">
             <div class="col-md-6 d-flex justify-center">
-                <img  src="{{ artifact.image }}" />
+                <img src="{{ artifact.image }}" />
             </div>
             <div class="col-md-6">
                 <div class="card-body">
@@ -21,9 +21,9 @@
                     <a href="{% url "artifact_detail" artifact_id=artifact.id %}" class="btn btn-primary" style="width: 160px">
                         Анализировать
                     </a>
-                    <a href="" class="btn btn-danger" style="width: 160px">
+                    {% comment %} <a href="" class="btn btn-danger" style="width: 160px">
                         Удалить
-                    </a>
+                    </a> {% endcomment %}
                     </div>
                 </div>
             </div>
