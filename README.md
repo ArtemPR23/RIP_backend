@@ -10,7 +10,7 @@
 ## [Фронтенд](https://github.com/rasulov1337/kilogram-frontend)
 
 -   [SPA (лаб 5)](https://github.com/ArtemPR23/RIP_Frontend/tree/SPA)
--   [Redux, адаптивность & PWA (лаб 6)](https://github.com/Valya2003/RIP_Frontend/tree/Redux)
+-   [Redux, адаптивность & PWA (лаб 6)](https://github.com/ArtemPR23/RIP_Frontend/tree/Redux)
 -   [Tauri (лаб 6 )](https://github.com/ArtemPR23/RIP_Frontend/tree/TAURI)
 -   [Github Pages (лаб 6)](https://github.com/ArtemPR23/RIP_Frontend/tree/gh-pages)
 -   [Завершение интерфейса пользователя в React (лаб 7)](https://github.com/ArtemPR23/RIP_Frontend/tree/auth)
