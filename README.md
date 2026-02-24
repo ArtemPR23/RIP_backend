@@ -4,7 +4,7 @@
 
 -   [SSR (лаб 1)](https://github.com/ArtemPR23/RIP_Backend/tree/SSR)
 -   [База данных (лаб 2)](https://github.com/ArtemPR23/RIP_Backend/tree/ORM)
--   [Веб-сервис REST-API (лаб 3)](https://github.com/ArtemPR23/RIP_Backend/tree/DRF-API)
+-   [Веб-сервис REST-API (лаб 3)](https://github.com/ArtemPR23/RIP_backend/tree/REST-API)
 -   [Аутентификация и авторизация (лаб 4)](https://github.com/ArtemPR23/RIP_backend/tree/AUTH)
 
 ## [Фронтенд](https://github.com/rasulov1337/kilogram-frontend)
